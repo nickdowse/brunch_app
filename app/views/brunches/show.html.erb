@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @brunch.name %>
+</p>
+
+<p>
+  <strong>Opening time:</strong>
+  <%= @brunch.opening_time %>
+</p>
+
+<p>
+  <strong>Closing time:</strong>
+  <%= @brunch.closing_time %>
+</p>
+
+<p>
+  <strong>Vegetarian options available:</strong>
+  <%= @brunch.vegetarian_options_available %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @brunch.address %>
+</p>
+
+<!-- add in all of our reviews -->
+
+<%= link_to 'Edit', edit_brunch_path(@brunch) %> |
+<%= link_to 'Back', brunches_path %>
