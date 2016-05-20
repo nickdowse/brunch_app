@@ -26,8 +26,28 @@
 </p>
 
 <!-- Add in all of our reviews -->
+<hr>
+
+<%= render 'reviews/form' %>
+
+<p>
+  <strong>Reviews</strong>
+</p>
+
+<% @brunch.reviews.each do |review| %>
+  <tr>
+    <td><%= review.title %></td>
+    <td>Rating: <%= review.rating %>/5</td>
+    <td><%= review.content %></td>
+  </tr>
+  <br>
+  <br>
+<% end %>
+
+<hr>
 
 <%= link_to 'Edit', edit_brunch_path(@brunch) %> |
 <%= link_to 'Back', brunches_path %>
+<%= link_to 'New review', new_brunch_review_path(@brunch) %>
 
 <!-- Here add in a link to create a new review -->

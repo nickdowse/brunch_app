@@ -10,6 +10,8 @@ class BrunchesController < ApplicationController
   # GET /brunches/1
   # GET /brunches/1.json
   def show
+    # need to get @review
+    @review = Review.new
   end
 
   # GET /brunches/new

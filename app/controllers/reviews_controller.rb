@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   def new
-    @brunch = Brunch.find(1)
+    @brunch = Brunch.find(params[:brunch_id])
     @review = Review.new
   end
 
@@ -26,17 +26,15 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     @review = Review.new(review_params)
-
-    # leave user for now
-
-    @review.brunch_id = Brunch.find(params[:brunch_id])
+    @brunch = Brunch.find(params[:brunch_id])
+    @review.brunch_id = @brunch.id
 
     respond_to do |format|
       if @review.save
         format.html { redirect_to brunch_path(params[:brunch_id]), notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else
-        format.html { render :new }
+        format.html { render 'brunches/show' }
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
