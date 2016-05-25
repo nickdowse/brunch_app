@@ -25,5 +25,11 @@
   <%= @review.brunch_id %>
 </p>
 
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+<% if @review.rating > @brunch.average_rating %>
+  <p>You rated this brunch place higher than average!</p>
+<% else %>
+  <p>You rated this brunch place lower than average!</p>
+<% end %>
+
+<%= link_to 'Edit', edit_brunch_review_path(@review.brunch, @review) %> |
+<%= link_to 'Back', brunch_reviews_path(@review.brunch) %>
