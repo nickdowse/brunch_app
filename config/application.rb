@@ -22,5 +22,17 @@ module BrunchApp
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.paperclip_defaults = {
+      storage: :s3,
+      s3_host_name: 's3-eu-central-1.amazonaws.com',
+      s3_credentials: {
+        bucket: 'brunch-app-nick',
+        access_key_id: 'ACCESS_KEY_ID_GOES_HERE',
+        secret_access_key: 'SECRET_ACCESS_KEY_GOES_HERE',
+        s3_region: 'eu-central-1',
+      }
+    }
+
   end
 end

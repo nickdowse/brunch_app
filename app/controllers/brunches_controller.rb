@@ -71,6 +71,6 @@ class BrunchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def brunch_params
-      params.require(:brunch).permit(:name, :opening_time, :closing_time, :vegetarian_options_available, :address)
+      params.require(:brunch).permit(:name, :opening_time, :closing_time, :vegetarian_options_available, :address, :avatar)
     end
 end

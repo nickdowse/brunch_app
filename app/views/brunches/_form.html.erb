@@ -1,4 +1,4 @@
-<%= form_for(@brunch) do |f| %>
+<%= form_for(@brunch, :html => { multipart: true  }) do |f| %>
   <% if @brunch.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@brunch.errors.count, "error") %> prohibited this brunch from being saved:</h2>
@@ -30,6 +30,11 @@
   <div class="field">
     <%= f.label :address %><br>
     <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :avatar %><br>
+    <%= f.file_field :avatar %>
   </div>
   <div class="actions">
     <%= f.submit %>
